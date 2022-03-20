@@ -20,7 +20,7 @@ public class InfoPage extends DefaultPage {
     @Override
     public Node pageContent() {
         try {
-            String readmeStr = IOUtils.toString(readmeFile.toURI()   , "utf-8");
+            String readmeStr = IOUtils.toString(readmeFile.toURI(), "utf-8");
             MarkdownView mview = new MarkdownView(readmeStr);
             StackPane infoContainer = new StackPane(mview);
             infoContainer.getStyleClass().add("info-container");

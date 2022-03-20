@@ -6,15 +6,11 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 
 public class LandingPage extends DefaultPage {
 
-    private final Stage stage;
-
-    public LandingPage(WebAPI webAPI, Stage stage) {
+    public LandingPage(WebAPI webAPI) {
         super(webAPI);
-        this.stage = stage;
     }
 
     @Override
@@ -27,8 +23,6 @@ public class LandingPage extends DefaultPage {
         flow.getChildren().add(new BigCell(4, "", "https://www.javafx-ensemble.com"));
         flow.getChildren().add(new BigCell(5, "", "https://www.jfx-central.com"));
         flow.getChildren().add(new BigCell(6, "", "https://openjfx.io"));
-
-        System.out.println("url: " + WebAPI.getWebAPI(stage).getURLQueryParams());
 
         return flow;
     }

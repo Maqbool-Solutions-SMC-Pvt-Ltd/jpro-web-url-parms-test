@@ -3,6 +3,7 @@ package com.jpro.hellojpro.page;
 import com.jpro.hellojpro.component.Header;
 import com.jpro.web.View;
 import com.jpro.webapi.WebAPI;
+import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;
 
@@ -37,6 +38,12 @@ public abstract class DefaultPage extends View {
         root.getStyleClass().add("page-outer-vbox");
         root.getChildren().add(new Header(url()));
         root.getChildren().add(innerVBox);
+
+//        Platform.runLater(() -> {
+        System.out.println("Params: " + webAPI.getURLQueryParams());
+        System.out.println("----------------------------------------");
+//        });
+
         return root;
     }
 
