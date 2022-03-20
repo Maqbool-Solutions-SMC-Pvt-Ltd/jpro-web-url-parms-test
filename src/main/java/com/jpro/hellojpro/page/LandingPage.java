@@ -1,23 +1,20 @@
 package com.jpro.hellojpro.page;
 
 import com.jpro.web.Util;
-import com.jpro.web.View;
 import com.jpro.webapi.WebAPI;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
-import java.io.IOException;
+import javafx.stage.Stage;
 
 public class LandingPage extends DefaultPage {
 
-    public LandingPage(WebAPI webAPI) {
+    private final Stage stage;
+
+    public LandingPage(WebAPI webAPI, Stage stage) {
         super(webAPI);
+        this.stage = stage;
     }
 
     @Override
@@ -30,10 +27,14 @@ public class LandingPage extends DefaultPage {
         flow.getChildren().add(new BigCell(4, "", "https://www.javafx-ensemble.com"));
         flow.getChildren().add(new BigCell(5, "", "https://www.jfx-central.com"));
         flow.getChildren().add(new BigCell(6, "", "https://openjfx.io"));
+
+        System.out.println("url: " + WebAPI.getWebAPI(stage).getURLQueryParams());
+
         return flow;
     }
 
     class BigCell extends StackPane {
+
         BigCell(int i, String txt, String link) {
             Util.setLink(this, link);
             getStyleClass().add("big-cell");

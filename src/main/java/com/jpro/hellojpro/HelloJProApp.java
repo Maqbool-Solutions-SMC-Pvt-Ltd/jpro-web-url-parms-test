@@ -17,9 +17,9 @@ public class HelloJProApp extends WebApp {
         addRouteJava((s) -> { switch(s) {
             case "":
             case "/":
-                return new Redirect("/landing");
-            case "/landing":
-                return new LandingPage(WebAPI.isBrowser() ? WebAPI.getWebAPI(stage) : null);
+                return new Redirect("/landing?category=xyz");
+            case "/landing?category=xyz":
+                return new LandingPage(WebAPI.isBrowser() ? WebAPI.getWebAPI(stage) : null, stage);
             case "/info":
                 return new InfoPage(WebAPI.isBrowser() ? WebAPI.getWebAPI(stage) : null);
             case "/fxml":

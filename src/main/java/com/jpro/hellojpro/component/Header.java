@@ -9,7 +9,7 @@ public class Header extends HBox {
     public Header(String currentURL) {
         this.currentURL = currentURL;
         getStyleClass().add("header");
-        getChildren().add(new Link("Header","/landing"));
+        getChildren().add(new Link("Header","/landing?category=xyz"));
         getChildren().add(new Link("Info","/info"));
         getChildren().add(new Link("FXML","/fxml"));
     }
